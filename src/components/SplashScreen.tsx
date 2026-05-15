@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { APP_CONFIG } from '../constants';
 
 interface SplashScreenProps {
@@ -17,7 +17,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-[100] bg-white flex flex-center flex-col justify-center items-center overflow-hidden cursor-pointer"
+      className="fixed inset-0 z-[100] bg-white flex flex-col justify-center items-center overflow-hidden cursor-pointer"
       id="splash-screen"
       onClick={onEnter}
     >

@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { Section, BannerCard } from './components/Common';
 import { MemberCard } from './components/MemberCard';
@@ -150,7 +150,7 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          onClick={playInteractionSound}
+          onClick={() => playInteractionSound()}
           className="cursor-pointer group relative"
         >
           <h2 className="text-5xl md:text-8xl font-display font-black text-black text-center uppercase tracking-tighter px-6 leading-none transition-transform group-hover:scale-105 duration-500">

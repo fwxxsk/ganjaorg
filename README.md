@@ -1,11 +1,55 @@
-<div align="center">
+# GANJA Collective
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+An elite syndicate of digital architects, gamers, and visionary curators forging the next epoch of the decentralized meta.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Syndicate Branding**: Clean white aesthetic with blue and pink accents.
+- **Discord Integration**: Real-time status indicators for members (via Lanyard API).
+- **Interactive Cards**: High-contrast black cards for members and special items.
+- **Micro-Animations**: Smooth transitions powered by `motion`.
+- **Responsive Design**: Polished experience across all devices.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Tech Stack
 
-</div>
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Motion (f.k.a. Framer Motion)
+- **Icons**: Lucide React
+- **Status API**: Lanyard (Discord Presence)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+### Production
+
+Build for production:
+```bash
+npm run build
+```
+
+## Customization
+
+To edit the content (members, images, links), modify the `src/constants.ts` file. Follow the comments to add your Discord ID, banner images, and sound bytes.
+
+---
+© 2026 GANJA COLLECTIVE // ALL RIGHTS RESERVED

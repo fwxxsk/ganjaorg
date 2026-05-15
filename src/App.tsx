@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Navigation } from './components/Navigation';
 import { Section, BannerCard } from './components/Common';
 import { MemberCard } from './components/MemberCard';
@@ -13,7 +13,7 @@ import { MEMBERS_DATA, THREAT_ITEMS, MENACE_ITEMS, APP_CONFIG } from './constant
 import { Globe, Shield, Terminal, Zap, Volume2, VolumeX, ChevronDown } from 'lucide-react';
 
 export default function App() {
-  console.log("App component rendering...");
+  if (window.lg) window.lg('App component rendering');
   const [entered, setEntered] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isMusicPausedForModal, setIsMusicPausedForModal] = useState(false);
@@ -68,7 +68,7 @@ export default function App() {
       {/* BLUE & PINK VIBE OVERLAY */}
       <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-br from-accent/5 via-pink/5 to-accent/10" />
       
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         {!entered ? (
           <SplashScreen key="splash" onEnter={handleEnter} />
         ) : (

@@ -7,7 +7,38 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="debug-info" style="position:fixed; bottom:0; left:0; right:0; height:150px; background:rgba(0,0,0,0.8); color:#0f0; z-index:999999; padding:10px; font-family:monospace; overflow:auto; pointer-events:none; font-size:10px;">
+      <pre id="debug-pre" style="margin:0;"></pre>
+    </div>
+    <script>
+      (function() {
+        var pre = document.getElementById('debug-pre');
+        var info = document.getElementById('debug-info');
+        function lg(msg, color) {
+          var line = document.createElement('div');
+          line.textContent = '>' + msg;
+          if (color) line.style.color = color;
+          pre.appendChild(line);
+          console.log(msg);
+        }
+        window.lg = lg;
+        
+        window.onerror = function(msg, url, line, col, error) {
+          info.style.display = 'block';
+          lg('ERROR: ' + msg, 'red');
+          lg('AT: ' + url + ':' + line + ':' + col, 'red');
+          if (error && error.stack) lg('STACK: ' + error.stack, 'red');
+        };
+
+        window.addEventListener('unhandledrejection', function(event) {
+          info.style.display = 'block';
+          lg('REJECTION: ' + event.reason, 'orange');
+        });
+
+        lg('System started. Waiting for main script...');
+      })();
+    </script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
 

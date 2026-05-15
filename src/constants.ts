@@ -13,10 +13,10 @@ export const APP_CONFIG = {
   bgMusicUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 
   
   // LINE: EDIT GLOBAL BACKGROUND IMAGE HERE
-  customBackgroundImg: 'Gemini_Generated_Image_s29trrs29trrs29t.png', 
+  customBackgroundImg: '', 
 
   // LINE: EDIT INTRO IMAGE HERE
-  splashImgSrc: 'Gemini_Generated_Image_s29trrs29trrs29t.png', // Add your .jpg or .png link here for the entry button image
+  splashImgSrc: '', // Add your .jpg or .png link here for the entry button image
 
   // DISCORD LINK: https://discord.gg/qnEXAvMEb
 };

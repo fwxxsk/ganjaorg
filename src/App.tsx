@@ -13,6 +13,7 @@ import { MEMBERS_DATA, THREAT_ITEMS, MENACE_ITEMS, APP_CONFIG } from './constant
 import { Globe, Shield, Terminal, Zap, Volume2, VolumeX, ChevronDown } from 'lucide-react';
 
 export default function App() {
+  console.log("App component rendering...");
   const [entered, setEntered] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isMusicPausedForModal, setIsMusicPausedForModal] = useState(false);

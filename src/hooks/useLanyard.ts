@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { LanyardData } from './types';
+import { LanyardData } from '../types';
 
 export function useLanyard(userId: string) {
   const [presence, setPresence] = useState<LanyardData | null>(null);

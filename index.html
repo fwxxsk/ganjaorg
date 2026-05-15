@@ -6,56 +6,8 @@
     <title>My Google AI Studio App</title>
   </head>
   <body>
-    <div id="root">
-      <div style="display: flex; height: 100vh; width: 100vw; align-items: center; justify-content: center; font-family: sans-serif; color: #888;">
-        LOADING_GANJA_SYSTEM...
-      </div>
-    </div>
-    <div id="debug-log" style="position:fixed; bottom:0; left:0; right:0; max-height:200px; overflow:auto; background:rgba(0,0,0,0.8); color:#0f0; font-size:10px; font-family:monospace; z-index:10000; pointer-events:none;"></div>
-    <script>
-      (function() {
-        var log = document.getElementById('debug-log');
-        function addLog(msg, color) {
-          var div = document.createElement('div');
-          div.textContent = msg;
-          if (color) div.style.color = color;
-          log.appendChild(div);
-          log.scrollTop = log.scrollHeight;
-        }
-        var oldLog = console.log;
-        console.log = function() {
-          addLog(Array.prototype.slice.call(arguments).join(' '));
-          oldLog.apply(console, arguments);
-        };
-        var oldWarn = console.warn;
-        console.warn = function() {
-          addLog(Array.prototype.slice.call(arguments).join(' '), 'yellow');
-          oldWarn.apply(console, arguments);
-        };
-        var oldErr = console.error;
-        console.error = function() {
-          addLog(Array.prototype.slice.call(arguments).join(' '), 'red');
-          oldErr.apply(console, arguments);
-        };
-      })();
-      window.onerror = function(msg, url, line, col, error) {
-        var extra = error ? '<br>STACK: ' + error.stack : '';
-        document.body.innerHTML = '<div style="color:red; padding:20px; font-family:monospace; background:white; position:absolute; inset:0; z-index:9999;"><h1>RUNTIME_ERROR</h1>' + msg + '<br>AT: ' + url + ':' + line + extra + '</div>';
-      };
-      
-      function handleScriptError() {
-        document.body.innerHTML = '<div style="color:red; padding:20px; font-family:monospace; background:white; position:absolute; inset:0; z-index:9999;"><h1>SCRIPT_LOAD_ERROR</h1>Could not load /src/main.tsx. This might be a path issue or a build/server error.</div>';
-      }
-      
-      console.log("Entry script starting...");
-      window.addEventListener('load', function() {
-        console.log("Window loaded");
-        if (document.getElementById('root').innerHTML.indexOf('LOADING_GANJA_SYSTEM') !== -1) {
-          console.warn("React hasn't overwritten the loading text yet.");
-        }
-      });
-    </script>
-    <script type="module" src="src/main.tsx" onerror="handleScriptError()" onload="console.log('src/main.tsx loaded')"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 

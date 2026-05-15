@@ -14,7 +14,8 @@
 
 @layer base {
   html, body, #root {
-    @apply bg-white text-black selection:bg-accent selection:text-white;
+    background-color: white;
+    color: black;
     -webkit-font-smoothing: antialiased;
     min-height: 100%;
   }

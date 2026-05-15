@@ -94,7 +94,7 @@ export default function App() {
       <section id="hof" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
         {/* Background Gradients */}
         <div className="absolute inset-x-0 top-0 h-[70vh] bg-gradient-to-b from-accent/10 via-pink/5 to-transparent opacity-50 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-radial-gradient from-accent/5 to-transparent blur-3xl opacity-30 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] blur-3xl opacity-30 pointer-events-none" />
         
         {/* FLASHING BG ELEMENTS */}
         <motion.div 

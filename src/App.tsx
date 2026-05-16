@@ -120,7 +120,7 @@ export default function App() {
             transition={{ delay: 0.5, duration: 1 }}
             className="max-w-2xl mx-auto text-lg sm:text-2xl text-neutral-600 font-medium leading-relaxed tracking-tight mb-12"
           >
-            An elite syndicate of digital architects, gamers, and visionary curators forging the next epoch of the decentralized meta.
+            ALL EYES ON US
           </motion.p>
         </div>
 
@@ -224,7 +224,7 @@ export default function App() {
           <a href="#" className="hover:text-pink transition-colors">X / TWITTER</a>
           <a href="#" className="hover:text-accent transition-colors">OPENSEA</a>
         </div>
-        <div>© 2026 GANJA COLLECTIVE // ALL RIGHTS RESERVED</div>
+        <div>© 2026 GANJA ORG // ALL RIGHTS RESERVED</div>
       </footer>
 
       {/* HIDDEN AUDIO ELEMENT */}

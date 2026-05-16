@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
@@ -19,8 +19,6 @@ export const Navigation: React.FC = () => {
 
   const navLinks = [
     { name: 'HOF', href: '#hof' },
-    { name: 'THREAT TO EVERYONE', href: '#threat' },
-    { name: 'EXCLUSIVE', href: '#menace' },
     { name: 'MEMBERS', href: '#members' },
     { name: 'ABOUT', href: '#about' },
   ];
@@ -35,10 +33,7 @@ export const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-white">
         {/* LOGO */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-xl font-black transform -skew-x-12 group-hover:skew-x-0 transition-transform shadow-[0_4px_15px_rgba(255,0,0,0.4)]">
-            <span className="text-white">GJ</span>
-          </div>
-          <span className="font-display font-black text-2xl tracking-tighter uppercase">
+          <span className="font-anton font-normal text-6xl tracking-tight uppercase text-white">
             GANJA
           </span>
         </a>

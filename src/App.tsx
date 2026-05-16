@@ -4,13 +4,13 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Navigation } from './components/Navigation';
-import { Section, BannerCard } from './components/Common';
+import { Section } from './components/Common';
 import { MemberCard } from './components/MemberCard';
 import { SplashScreen } from './components/SplashScreen';
-import { MEMBERS_DATA, THREAT_ITEMS, MENACE_ITEMS, APP_CONFIG } from './constants';
-import { Globe, Shield, Terminal, Zap, Volume2, VolumeX, ChevronDown } from 'lucide-react';
+import { MEMBERS_DATA, APP_CONFIG } from './constants';
+import { Volume2, VolumeX, ChevronDown } from 'lucide-react';
 
 export default function App() {
   const [entered, setEntered] = useState(false);
@@ -55,18 +55,20 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-accent selection:text-white bg-black relative`}>
+    <div className={`min-h-screen font-sans selection:bg-accent selection:text-white relative`}>
       {/* GLOBAL BACKGROUND IMAGE */}
       {APP_CONFIG.customBackgroundImg && (
         <div 
           className="fixed inset-0 z-[-1] pointer-events-none opacity-100 bg-cover bg-center bg-fixed transition-all duration-700"
           style={{ backgroundImage: `url(${APP_CONFIG.customBackgroundImg})` }}
-        />
+        >
+          {/* Subtle dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
       )}
       
-      {/* DARK RED LEFT-TO-RIGHT FADE OVERLAY */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-r from-accent/40 via-black/60 to-black/90 mix-blend-multiply" />
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-r from-accent/10 to-transparent opacity-50" />
+      {/* GLOBAL VIGNETTE / ACCENT GRADIENT */}
+      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-r from-accent/10 via-transparent to-accent/10 opacity-30" />
       
       <AnimatePresence mode="wait" initial={false}>
         {!entered ? (
@@ -91,31 +93,29 @@ export default function App() {
             </div>
 
             {/* HERO / HOF SECTION */}
-      <section id="hof" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-transparent">
+      <section id="hof" className="relative min-h-screen flex items-center justify-center pt-32 pb-40 overflow-hidden bg-transparent">
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-transparent to-transparent opacity-60 pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-[70vh] bg-gradient-to-b from-black via-transparent to-transparent opacity-80 pointer-events-none" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-8"
-          >
-            <h1 className="text-7xl sm:text-9xl md:text-[12rem] font-display font-black leading-[0.8] tracking-tighter uppercase text-white drop-shadow-2xl">
-              GAN<span className="text-accent">JA</span>
-            </h1>
-          </motion.div>
-          
-          <motion.p 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="max-w-2xl mx-auto text-lg sm:text-2xl text-neutral-400 font-medium leading-relaxed tracking-tight mb-12"
-          >
-            An elite syndicate of digital architects, gamers, and visionary curators forging the next epoch of the decentralized meta.
-          </motion.p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+            {MEMBERS_DATA.slice(0, 3).map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: index * 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="h-[450px]"
+              >
+                <MemberCard 
+                  member={member} 
+                  onClick={() => playInteractionSound(member.soundSrc)}
+                  className="h-full" 
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* SCROLL INDICATOR */}
@@ -123,7 +123,7 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 flex flex-col items-center gap-4 group"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 group z-20"
         >
           <a href="#kupal" className="flex flex-col items-center gap-2 group">
              <span className="text-[10px] font-bold tracking-[0.5em] text-white/40 uppercase group-hover:text-accent transition-colors">SCROLL</span>
@@ -138,7 +138,7 @@ export default function App() {
       </section>
 
       {/* KUPAL SECTION */}
-      <section id="kupal" className="bg-black/60 backdrop-blur-md py-32 flex items-center justify-center border-t border-white/5">
+      <section id="kupal" className="bg-transparent py-32 flex items-center justify-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -156,47 +156,36 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* THREAT TO EVERYONE (TTE) SECTION */}
-      <Section id="threat" title="THREAT TO EVERYONE" bg="bg-black/60 backdrop-blur-md">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {THREAT_ITEMS.map((item) => (
-            <BannerCard 
-              key={item.id} 
-              item={item} 
-              onClick={() => playInteractionSound(item.soundSrc)}
-            />
-          ))}
-        </div>
-      </Section>
-
-      {/* EXCLUSIVE SECTION */}
-      <Section id="menace" title="EXCLUSIVE" fullWidth>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-          {MENACE_ITEMS.map((item) => (
-            <BannerCard 
-              key={item.id} 
-              item={item} 
-              onClick={() => playInteractionSound(item.soundSrc)}
-            />
-          ))}
-        </div>
-      </Section>
-
       {/* MEMBERS SECTION */}
-      <Section id="members" title="MEMBERS" bg="bg-black/60 backdrop-blur-md">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {MEMBERS_DATA.map((member) => (
-            <MemberCard 
-              key={member.id} 
-              member={member} 
-              onClick={() => playInteractionSound(member.soundSrc)}
-            />
-          ))}
+      <section id="members" className="relative bg-transparent py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16 flex items-center gap-6"
+          >
+            <h2 className="text-5xl sm:text-7xl font-display font-black tracking-tighter uppercase text-white">
+              MEMBERS
+            </h2>
+            <div className="flex-grow h-[1px] bg-white/10" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8 md:gap-12">
+            {MEMBERS_DATA.map((member) => (
+              <MemberCard 
+                key={member.id} 
+                member={member} 
+                onClick={() => playInteractionSound(member.soundSrc)}
+              />
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* ABOUT US SECTION */}
-      <Section id="about" title="ABOUT US" bg="bg-black/60 backdrop-blur-md">
+      <Section id="about" title="ABOUT US" bg="bg-transparent">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -212,7 +201,7 @@ export default function App() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="py-20 bg-black/80 backdrop-blur-md border-t border-white/5 text-center text-white/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
+      <footer className="py-20 bg-transparent text-center text-white/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
         <div className="flex items-center justify-center gap-8 mb-12 opacity-50">
           <a href="#" className="hover:text-accent transition-colors">DISCORD</a>
           <a href="#" className="hover:text-accent transition-colors">X / TWITTER</a>

@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { CardItem } from '../types';
 import { useLanyard } from '../hooks/useLanyard';
 
@@ -16,7 +16,7 @@ interface SectionProps {
   fullWidth?: boolean;
 }
 
-export const Section: React.FC<SectionProps> = ({ id, title, children, bg = 'bg-black/60 backdrop-blur-md', fullWidth = false }) => (
+export const Section: React.FC<SectionProps> = ({ id, title, children, bg = 'bg-transparent', fullWidth = false }) => (
   <section id={id} className={`${bg} py-24 sm:py-32 overflow-hidden border-t border-white/5`}>
     <div className={`${fullWidth ? 'w-full px-6' : 'max-w-7xl mx-auto px-6'}`}>
       <motion.div 
@@ -63,11 +63,18 @@ export const BannerCard: React.FC<BannerCardProps & { onClick: () => void }> = (
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className="group relative h-[450px] w-full rounded-[40px] overflow-hidden border border-white/5 bg-neutral-950 cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-accent/40 transition-all duration-500"
       id={item.id}
     >
+      {/* CLICK FLASH EFFECT */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileTap={{ opacity: [0, 0.4, 0] }}
+        transition={{ duration: 0.2 }}
+        className="absolute inset-0 bg-white z-[60] pointer-events-none"
+      />
     {/* BANNER IMAGE */}
     <div className="absolute inset-0 overflow-hidden">
       {item.imgSrc ? (

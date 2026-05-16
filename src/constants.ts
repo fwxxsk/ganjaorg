@@ -13,7 +13,7 @@ export const APP_CONFIG = {
   bgMusicUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 
   
   // LINE: EDIT GLOBAL BACKGROUND IMAGE HERE
-  customBackgroundImg: 'https://drive.google.com/uc?export=download&id=1QQTaswjfRviVF9Xgc_Uv06x8vhyXg4C2', 
+  customBackgroundImg: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKMGpxVf7WKGp68/giphy.gif', 
 
   // LINE: EDIT INTRO IMAGE HERE
   splashImgSrc: 'https://drive.google.com/uc?export=download&id=1QQTaswjfRviVF9Xgc_Uv06x8vhyXg4C2', // Add your .jpg or .png link here for the entry button image
@@ -24,33 +24,33 @@ export const APP_CONFIG = {
 export const MEMBERS_DATA: Member[] = [
   {
     id: 'risk',
-    discordId: '1234567890', // put your discord id here
+    discordId: '1234567890', 
     name: 'risk',
-    role: 'EXEC',
-    description: 'Community Manager & Lead Designer',
-    bannerImg: '', // put your banner image url here
-    profileImg: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/8e4c0c11e2786c58b268312ebaa73adc.jpg', // put your profile image url here
-    soundSrc: 'XRecorder_20260516_02.mp3', // put your mp3 sound url here
+    role: 'HEAD',
+    description: 'Lead Designer',
+    bannerImg: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop', 
+    profileImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2576&auto=format&fit=crop', 
+    soundSrc: '', 
   },
   {
     id: 'wayne',
-    discordId: '0987654321', // put your discord id here
+    discordId: '0987654321', 
     name: 'Wayne',
     role: 'FOUNDER',
-    description: 'The visionary behind RANSXM',
-    bannerImg: '', // put your banner image url here
-    profileImg: '', // put your profile image url here
-    soundSrc: '', // put your mp3 sound url here
+    description: 'The visionary',
+    bannerImg: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop', 
+    profileImg: 'https://images.unsplash.com/photo-1552058544-f20660026b23?q=80&w=2598&auto=format&fit=crop', 
+    soundSrc: '', 
   },
   {
     id: 'jid',
-    discordId: '1122334455', // put your discord id here
+    discordId: '1122334455', 
     name: 'jid',
     role: 'STAFF',
-    description: 'Moderation and Server Security',
-    bannerImg: '', // put your banner image url here
-    profileImg: '', // put your profile image url here
-    soundSrc: '', // put your mp3 sound url here
+    description: 'Moderator',
+    bannerImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop', 
+    profileImg: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop', 
+    soundSrc: '', 
   },
   {
     id: 'nox',
@@ -106,14 +106,14 @@ export const MEMBERS_DATA: Member[] = [
 
 export const THREAT_ITEMS: CardItem[] = [
   {
-    id: 'skye',
-    title: 'skye',
-    description: 'xxx',
+    id: 't1',
+    title: 'THE OVERSEER',
+    description: 'bobo ka tol',
     type: 'threat',
-    imgSrc: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/ChatGPT%20Image%20May%2011%2C%202026%2C%2001_11_58%20AM.png', // EDIT_BANNER_IMAGE_HERE
-    profileImg: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/65d085eb689a1ac0f04ed1e837cf9acd.jpg', // EDIT_PROFILE_IMAGE_HERE
+    imgSrc: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop', // EDIT_BANNER_IMAGE_HERE
+    profileImg: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2576&auto=format&fit=crop', // EDIT_PROFILE_IMAGE_HERE
     soundSrc: '',
-    discordId: '1314948054691877005', // put your discord id here
+    discordId: '1234567890', // put your discord id here
   },
   {
     id: 't2',

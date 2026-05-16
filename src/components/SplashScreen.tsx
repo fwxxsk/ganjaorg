@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { APP_CONFIG } from '../constants';
 
 interface SplashScreenProps {

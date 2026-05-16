@@ -219,7 +219,7 @@ export default function App() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="py-20 bg-white/90 backdrop-blur-md border-t border-black/5 text-center text-black/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
+      <footer className="py-20 bg-black/90 backdrop-blur-md border-t border-black/5 text-center text-black/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
         <div className="flex items-center justify-center gap-8 mb-12 opacity-50">
           <a href="#" className="hover:text-accent transition-colors">DISCORD</a>
           <a href="#" className="hover:text-pink transition-colors">X / TWITTER</a>

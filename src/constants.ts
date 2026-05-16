@@ -110,7 +110,7 @@ export const THREAT_ITEMS: CardItem[] = [
     title: 'skye',
     description: 'xxx',
     type: 'threat',
-    imgSrc: '', // EDIT_BANNER_IMAGE_HERE
+    imgSrc: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/ChatGPT%20Image%20May%2011%2C%202026%2C%2001_11_58%20AM.png', // EDIT_BANNER_IMAGE_HERE
     profileImg: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/65d085eb689a1ac0f04ed1e837cf9acd.jpg', // EDIT_PROFILE_IMAGE_HERE
     soundSrc: '',
     discordId: '1314948054691877005', // put your discord id here

@@ -59,13 +59,13 @@ export default function App() {
       {/* GLOBAL BACKGROUND IMAGE */}
       {APP_CONFIG.customBackgroundImg && (
         <div 
-          className="fixed inset-0 z-[-1] pointer-events-none opacity-40 bg-cover bg-center bg-fixed"
+          className="fixed inset-0 z-[-1] pointer-events-none opacity-60 bg-cover bg-center bg-fixed transition-all duration-700"
           style={{ backgroundImage: `url(${APP_CONFIG.customBackgroundImg})` }}
         />
       )}
       
       {/* BLUE & PINK VIBE OVERLAY */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-br from-accent/5 via-pink/5 to-accent/10" />
+      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-br from-accent/5 via-pink/5 to-accent/10 mix-blend-multiply" />
       
       <AnimatePresence mode="wait" initial={false}>
         {!entered ? (
@@ -90,7 +90,7 @@ export default function App() {
             </div>
 
             {/* HERO / HOF SECTION */}
-      <section id="hof" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
+      <section id="hof" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-transparent">
         {/* Background Gradients */}
         <div className="absolute inset-x-0 top-0 h-[70vh] bg-gradient-to-b from-accent/10 via-pink/5 to-transparent opacity-50 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] blur-3xl opacity-30 pointer-events-none" />
@@ -144,7 +144,7 @@ export default function App() {
       </section>
 
       {/* KUPAL SECTION */}
-      <section id="kupal" className="bg-white py-32 flex items-center justify-center border-t border-black/5">
+      <section id="kupal" className="bg-white/90 backdrop-blur-md py-32 flex items-center justify-center border-t border-black/5">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export default function App() {
       </section>
 
       {/* THREAT TO EVERYONE (TTE) SECTION */}
-      <Section id="threat" title="TTE" bg="bg-white">
+      <Section id="threat" title="TTE" bg="bg-white/90 backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {THREAT_ITEMS.map((item) => (
             <BannerCard 
@@ -189,7 +189,7 @@ export default function App() {
       </Section>
 
       {/* MEMBERS SECTION */}
-      <Section id="members" title="MEMBERS" bg="bg-white">
+      <Section id="members" title="MEMBERS" bg="bg-white/90 backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {MEMBERS_DATA.map((member) => (
             <MemberCard 
@@ -202,7 +202,7 @@ export default function App() {
       </Section>
 
       {/* ABOUT US SECTION */}
-      <Section id="about" title="ABOUT US" bg="bg-white">
+      <Section id="about" title="ABOUT US" bg="bg-white/90 backdrop-blur-md">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ export default function App() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="py-20 bg-white border-t border-black/5 text-center text-black/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
+      <footer className="py-20 bg-white/90 backdrop-blur-md border-t border-black/5 text-center text-black/30 font-mono text-xs uppercase tracking-[0.5em] px-6">
         <div className="flex items-center justify-center gap-8 mb-12 opacity-50">
           <a href="#" className="hover:text-accent transition-colors">DISCORD</a>
           <a href="#" className="hover:text-pink transition-colors">X / TWITTER</a>

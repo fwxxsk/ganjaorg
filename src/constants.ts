@@ -106,14 +106,14 @@ export const MEMBERS_DATA: Member[] = [
 
 export const THREAT_ITEMS: CardItem[] = [
   {
-    id: 't1',
-    title: 'THE OVERSEER',
-    description: 'bobo ka tol',
+    id: 'skye',
+    title: 'skye',
+    description: 'xxx',
     type: 'threat',
-    imgSrc: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop', // EDIT_BANNER_IMAGE_HERE
-    profileImg: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2576&auto=format&fit=crop', // EDIT_PROFILE_IMAGE_HERE
+    imgSrc: '', // EDIT_BANNER_IMAGE_HERE
+    profileImg: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/65d085eb689a1ac0f04ed1e837cf9acd.jpg', // EDIT_PROFILE_IMAGE_HERE
     soundSrc: '',
-    discordId: '1234567890', // put your discord id here
+    discordId: '1314948054691877005', // put your discord id here
   },
   {
     id: 't2',

@@ -59,19 +59,19 @@ export default function App() {
       {/* GLOBAL BACKGROUND IMAGE */}
       {APP_CONFIG.customBackgroundImg && (
         <div 
-          className="fixed inset-0 z-[-1] pointer-events-none opacity-60 bg-cover bg-center bg-fixed transition-all duration-700"
+          className="fixed inset-0 z-[-1] pointer-events-none bg-cover bg-center bg-fixed transition-all duration-700"
           style={{ backgroundImage: `url(${APP_CONFIG.customBackgroundImg})` }}
         />
       )}
       
-      {/* BLUE & PINK VIBE OVERLAY */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-br from-accent/5 via-pink/5 to-accent/10 mix-blend-multiply" />
+      {/* BLUE & PINK VIBE OVERLAY*/}
+    
       
       <AnimatePresence mode="wait" initial={false}>
         {!entered ? (
           <SplashScreen key="splash" onEnter={handleEnter} />
         ) : (
-          <motion.div 
+           // <motion.div 
             key="main-content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

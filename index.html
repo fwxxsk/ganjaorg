@@ -3,42 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>Ganja Collective</title>
   </head>
-  <body>
-    <div id="root"></div>
-    <div id="debug-info" style="position:fixed; bottom:0; left:0; right:0; height:150px; background:rgba(0,0,0,0.8); color:#0f0; z-index:999999; padding:10px; font-family:monospace; overflow:auto; pointer-events:none; font-size:10px;">
+  <body style="background: white; margin: 0;">
+    <div id="root">
+      <div style="padding: 20px; font-family: sans-serif; color: #888;">
+        SYSTEM_READY... WAITING_FOR_REACT...
+      </div>
+    </div>
+    
+    <div id="debug-info" style="position:fixed; bottom:0; left:0; right:0; height:150px; background:rgba(0,0,0,0.9); color:#0f0; z-index:999999; padding:10px; font-family:monospace; overflow:auto; font-size:11px;">
       <pre id="debug-pre" style="margin:0;"></pre>
     </div>
+
     <script>
       (function() {
         var pre = document.getElementById('debug-pre');
-        var info = document.getElementById('debug-info');
-        function lg(msg, color) {
-          var line = document.createElement('div');
-          line.textContent = '>' + msg;
-          if (color) line.style.color = color;
-          pre.appendChild(line);
+        window.lg = function(msg, color) {
+          var div = document.createElement('div');
+          div.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+          if (color) div.style.color = color;
+          pre.appendChild(div);
+          if (pre.parentNode) pre.parentNode.scrollTop = pre.parentNode.scrollHeight;
           console.log(msg);
-        }
-        window.lg = lg;
+        };
         
         window.onerror = function(msg, url, line, col, error) {
-          info.style.display = 'block';
-          lg('ERROR: ' + msg, 'red');
-          lg('AT: ' + url + ':' + line + ':' + col, 'red');
-          if (error && error.stack) lg('STACK: ' + error.stack, 'red');
+          window.lg('ERROR: ' + msg + ' (at ' + url + ':' + line + ')', 'red');
+          if (error && error.stack) console.error(error.stack);
         };
 
-        window.addEventListener('unhandledrejection', function(event) {
-          info.style.display = 'block';
-          lg('REJECTION: ' + event.reason, 'orange');
-        });
-
-        lg('System started. Waiting for main script...');
+        window.lg('Boot sequence started...');
       })();
     </script>
-    <script type="module" src="./src/main.tsx"></script>
+    <script type="module">
+      (function() {
+        window.lg('Module loader standby...');
+        var path = './src/main.tsx';
+        window.lg('Importing ' + path + '...');
+        import(path)
+          .then(function() { window.lg('Import ' + path + ' SUCCESS'); })
+          .catch(function(e) { 
+            window.lg('Import ' + path + ' FAIL: ' + e, 'orange');
+            var altPath = '/src/main.tsx';
+            window.lg('Retrying with ' + altPath + '...');
+            import(altPath)
+              .then(function() { window.lg('Import ' + altPath + ' SUCCESS'); })
+              .catch(function(e2) { window.lg('FATAL: All imports failed: ' + e2, 'red'); });
+          });
+      })();
+    </script>
   </body>
 </html>
 

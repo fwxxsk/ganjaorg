@@ -19,7 +19,7 @@ export const Navigation: React.FC = () => {
 
   const navLinks = [
     { name: 'HOF', href: '#hof' },
-    { name: 'TTE', href: '#threat' },
+    { name: 'THREAT TO EVERYONE', href: '#threat' },
     { name: 'EXCLUSIVE', href: '#menace' },
     { name: 'MEMBERS', href: '#members' },
     { name: 'ABOUT', href: '#about' },
@@ -32,10 +32,10 @@ export const Navigation: React.FC = () => {
       }`}
       id="main-nav"
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-black">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-white">
         {/* LOGO */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-xl font-black transform -skew-x-12 group-hover:skew-x-0 transition-transform shadow-[0_4px_15px_rgba(0,51,255,0.2)]">
+          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-xl font-black transform -skew-x-12 group-hover:skew-x-0 transition-transform shadow-[0_4px_15px_rgba(255,0,0,0.4)]">
             <span className="text-white">GJ</span>
           </div>
           <span className="font-display font-black text-2xl tracking-tighter uppercase">
@@ -52,7 +52,7 @@ export const Navigation: React.FC = () => {
                 className="text-[13px] font-bold tracking-[0.15em] uppercase hover:text-accent transition-colors relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -64,12 +64,12 @@ export const Navigation: React.FC = () => {
             href="https://discord.gg/qnEXAvMEb" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hidden sm:block px-6 py-2 border border-black/10 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-black hover:text-white transition-all shadow-sm"
+            className="hidden sm:block px-6 py-2 border border-white/10 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all shadow-sm"
           >
             JOIN US!
           </a>
           <button 
-            className="md:hidden text-black"
+            className="md:hidden text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X /> : <Menu />}

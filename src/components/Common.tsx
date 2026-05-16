@@ -16,8 +16,8 @@ interface SectionProps {
   fullWidth?: boolean;
 }
 
-export const Section: React.FC<SectionProps> = ({ id, title, children, bg = 'bg-white', fullWidth = false }) => (
-  <section id={id} className={`${bg} py-24 sm:py-32 overflow-hidden border-t border-black/5`}>
+export const Section: React.FC<SectionProps> = ({ id, title, children, bg = 'bg-black/60 backdrop-blur-md', fullWidth = false }) => (
+  <section id={id} className={`${bg} py-24 sm:py-32 overflow-hidden border-t border-white/5`}>
     <div className={`${fullWidth ? 'w-full px-6' : 'max-w-7xl mx-auto px-6'}`}>
       <motion.div 
         initial={{ opacity: 0, x: -100 }}
@@ -26,10 +26,10 @@ export const Section: React.FC<SectionProps> = ({ id, title, children, bg = 'bg-
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="mb-16 flex items-center gap-6"
       >
-        <h2 className="text-5xl sm:text-7xl font-display font-black tracking-tighter uppercase text-black">
+        <h2 className="text-5xl sm:text-7xl font-display font-black tracking-tighter uppercase text-white">
           {title}
         </h2>
-        <div className="hidden sm:block flex-grow h-[1px] bg-gradient-to-r from-accent/20 via-pink/20 to-transparent" />
+        <div className="hidden sm:block flex-grow h-[1px] bg-gradient-to-r from-accent/20 via-accent/5 to-transparent" />
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -65,7 +65,7 @@ export const BannerCard: React.FC<BannerCardProps & { onClick: () => void }> = (
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 1.05 }}
       onClick={onClick}
-      className="group relative h-[450px] w-full rounded-[40px] overflow-hidden border border-black/5 bg-neutral-950 cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-accent/40 transition-all duration-500"
+      className="group relative h-[450px] w-full rounded-[40px] overflow-hidden border border-white/5 bg-neutral-950 cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-accent/40 transition-all duration-500"
       id={item.id}
     >
     {/* BANNER IMAGE */}
@@ -89,7 +89,7 @@ export const BannerCard: React.FC<BannerCardProps & { onClick: () => void }> = (
       
       {/* PROFILE CIRCLE */}
       <div className="relative mb-6">
-        <div className="w-28 h-28 rounded-full border-2 border-accent/20 p-1 flex items-center justify-center overflow-hidden glass shadow-[0_10px_30px_rgba(0,51,255,0.1)] relative">
+        <div className="w-28 h-28 rounded-full border-2 border-accent/20 p-1 flex items-center justify-center overflow-hidden glass shadow-[0_10px_30px_rgba(255,0,0,0.1)] relative">
           {item.profileImg ? (
             <img 
               src={item.profileImg} 
@@ -105,7 +105,7 @@ export const BannerCard: React.FC<BannerCardProps & { onClick: () => void }> = (
         </div>
         {/* ONLINE INDICATOR */}
         {item.discordId && (
-          <div className={`absolute bottom-1 right-2 w-5 h-5 rounded-full border-4 border-white z-20 ${statusColor} ${presence?.discord_status !== 'offline' ? 'animate-pulse' : ''}`} />
+          <div className={`absolute bottom-1 right-2 w-5 h-5 rounded-full border-4 border-black z-20 ${statusColor} ${presence?.discord_status !== 'offline' ? 'animate-pulse' : ''}`} />
         )}
       </div>
 

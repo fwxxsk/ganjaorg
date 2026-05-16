@@ -33,7 +33,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 1.05 }}
       onClick={onClick}
-      className="relative w-full h-[400px] rounded-[40px] overflow-hidden group border border-black/5 bg-neutral-950 cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-accent/40 transition-all duration-500"
+      className="relative w-full h-[400px] rounded-[40px] overflow-hidden group border border-white/5 bg-neutral-950 cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-accent/40 transition-all duration-500"
       id={`member-${member.id}`}
     >
       {/* BACKGROUND BANNER */}
@@ -60,7 +60,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick }) => {
         
         {/* AVATAR CONTAINER */}
         <div className="relative mb-6">
-          <div className="w-32 h-32 rounded-full border-2 border-accent/20 p-1 flex items-center justify-center overflow-hidden glass shadow-[0_10px_30px_rgba(0,51,255,0.2)] relative">
+          <div className="w-32 h-32 rounded-full border-2 border-accent/20 p-1 flex items-center justify-center overflow-hidden glass shadow-[0_10px_30px_rgba(255,0,0,0.2)] relative">
             {presence?.discord_user?.avatar && !member.profileImg ? (
               <img 
                 src={`https://cdn.discordapp.com/avatars/${member.discordId}/${presence.discord_user.avatar}.png?size=256`} 
@@ -82,7 +82,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick }) => {
             )}
           </div>
           {/* ONLINE INDICATOR */}
-          <div className={`absolute bottom-2 right-3 w-6 h-6 rounded-full border-4 border-white ${statusColor} shadow-lg z-20 ${presence?.discord_status !== 'offline' ? 'animate-pulse' : ''}`} />
+          <div className={`absolute bottom-2 right-3 w-6 h-6 rounded-full border-4 border-black ${statusColor} shadow-lg z-20 ${presence?.discord_status !== 'offline' ? 'animate-pulse' : ''}`} />
         </div>
 
         {/* NAME */}

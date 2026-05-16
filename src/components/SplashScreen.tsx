@@ -17,14 +17,14 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-[100] bg-[#f8f9fa] flex flex-col justify-center items-center overflow-hidden cursor-pointer"
+      className="fixed inset-0 z-[100] bg-black flex flex-col justify-center items-center overflow-hidden cursor-pointer"
       id="splash-screen"
       onClick={onEnter}
     >
       {/* BACKGROUND DECAL / GRID */}
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0033ff12_1px,transparent_1px),linear-gradient(to_bottom,#0033ff12_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-accent/5 to-white" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ff000012_1px,transparent_1px),linear-gradient(to_bottom,#ff000012_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-accent/5 to-black" />
       </div>
 
       {/* CENTER LOGO / IMAGE */}
@@ -48,11 +48,11 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
             <img 
               src={APP_CONFIG.splashImgSrc} 
               alt="System Logo" 
-              className="w-full h-auto object-contain relative z-10 drop-shadow-[0_10px_30px_rgba(0,51,255,0.1)] group-hover:drop-shadow-[0_15px_40px_rgba(255,0,204,0.2)] transition-all duration-500 animate-pulse"
+              className="w-full h-auto object-contain relative z-10 drop-shadow-[0_10px_30px_rgba(255,0,0,0.1)] group-hover:drop-shadow-[0_15px_40px_rgba(255,0,0,0.2)] transition-all duration-500 animate-pulse"
               referrerPolicy="no-referrer"
             />
             <div className="mt-8 text-center">
-              <span className="text-[10px] font-mono tracking-[0.5em] text-black/20 uppercase group-hover:text-pink transition-colors duration-500">
+              <span className="text-[10px] font-mono tracking-[0.5em] text-white/20 uppercase group-hover:text-accent transition-colors duration-500">
                 INITIATE_SYSTEM_LINK
               </span>
             </div>
@@ -84,13 +84,13 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
       </motion.div>
 
       {/* TERMINAL TEXT DECORATIONS */}
-      <div className="absolute bottom-12 left-12 font-mono text-[10px] text-black/10 uppercase space-y-2 hidden md:block">
+      <div className="absolute bottom-12 left-12 font-mono text-[10px] text-white/10 uppercase space-y-2 hidden md:block">
         <div>[ STATUS: SYNDICATE_READY ]</div>
         <div>[ AUTH: ADMIN_LEVEL_4 ]</div>
         <div>[ NETWORK: ENCRYPTED_MESH ]</div>
       </div>
 
-      <div className="absolute bottom-12 right-12 font-mono text-[10px] text-black/10 uppercase hidden md:block">
+      <div className="absolute bottom-12 right-12 font-mono text-[10px] text-white/10 uppercase hidden md:block">
         V.0.4.2 // GANJA_OS
       </div>
 

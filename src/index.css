@@ -6,16 +6,16 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-accent: #0033ff;
-  --color-pink: #ff00cc;
-  --color-surface-dim: rgba(255, 255, 255, 0.8);
-  --color-surface-card: #ffffff;
+  --color-accent: #990000;
+  --color-pink: #660000;
+  --color-surface-dim: rgba(0, 0, 0, 0.6);
+  --color-surface-card: #0a0a0a;
 }
 
 @layer base {
   html, body, #root {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     -webkit-font-smoothing: antialiased;
     height: 100%;
     margin: 0;
@@ -34,12 +34,12 @@
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+  background: #333333;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0033ff;
+  background: #ff0000;
 }
 

@@ -30,7 +30,7 @@ export const MEMBERS_DATA: Member[] = [
     description: 'Community Manager & Lead Designer',
     bannerImg: '', // put your banner image url here
     profileImg: 'https://raw.githubusercontent.com/fwxxsk/ganjaorg/refs/heads/main/8e4c0c11e2786c58b268312ebaa73adc.jpg', // put your profile image url here
-    soundSrc: '', // put your mp3 sound url here
+    soundSrc: 'XRecorder_20260516_02.mp3', // put your mp3 sound url here
   },
   {
     id: 'wayne',

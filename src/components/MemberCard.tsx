@@ -12,16 +12,16 @@ interface MemberCardProps {
   member: Member;
   onClick: () => void;
   className?: string;
+  isNameVisible?: boolean;
 }
 
-export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick, className = '' }) => {
-  const [showName, setShowName] = React.useState(false);
+export const MemberCard: React.FC<MemberCardProps> = ({ 
+  member, 
+  onClick, 
+  className = '',
+  isNameVisible = false 
+}) => {
   const { presence } = useLanyard(member.discordId);
-
-  const handleClick = () => {
-    setShowName(!showName);
-    onClick();
-  };
 
   return (
     <motion.div 
@@ -30,7 +30,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick, classNa
       viewport={{ once: true }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      onClick={handleClick}
+      onClick={onClick}
       className={`relative w-full h-[300px] rounded-[30px] overflow-hidden group border border-white/5 bg-neutral-950 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 ${className}`}
       id={`member-${member.id}`}
     >
@@ -87,9 +87,9 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onClick, classNa
           </div>
         </div>
 
-        {/* NAME - Shown only on click or hover state? User says "when u click each profile card it will show the username" */}
+        {/* NAME */}
         <AnimatePresence>
-          {showName && (
+          {isNameVisible && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

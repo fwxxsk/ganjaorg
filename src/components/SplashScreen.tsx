@@ -53,7 +53,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
             />
             <div className="mt-8 text-center">
               <span className="text-[10px] font-mono tracking-[0.5em] text-white/20 uppercase group-hover:text-accent transition-colors duration-500">
-                INITIATE_SYSTEM_LINK
+                PROCEED_SYSTEM_LINK
               </span>
             </div>
           </motion.div>
@@ -63,8 +63,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
               <span className="text-white">GJ</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-display font-black tracking-tighter uppercase text-black mb-4">
-              SYSTEM INITIATED
+            <h1 className="text-4xl md:text-6xl font-display font-black tracking-tighter uppercase text-white mb-4">
+              GANJA.ORG
             </h1>
             
             <p className="text-neutral-400 font-mono text-xs tracking-[0.4em] uppercase mb-12">
@@ -76,7 +76,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
             >
               <div className="absolute inset-0 bg-pink translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               <span className="relative z-10 font-display font-black text-sm tracking-[0.5em] uppercase text-black group-hover:text-white">
-                CLICK TO ENTER
+                PROCEED
               </span>
             </button>
           </>

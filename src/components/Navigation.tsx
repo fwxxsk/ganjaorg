@@ -34,7 +34,7 @@ export const Navigation: React.FC = () => {
         {/* LOGO */}
         <a href="#" className="flex items-center gap-3 group">
           <span className="font-anton font-normal text-6xl tracking-tight uppercase text-white">
-            GANJA
+            GANJA.ORG
           </span>
         </a>
 

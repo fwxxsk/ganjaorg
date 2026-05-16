@@ -9,12 +9,15 @@ import { Navigation } from './components/Navigation';
 import { Section } from './components/Common';
 import { MemberCard } from './components/MemberCard';
 import { SplashScreen } from './components/SplashScreen';
+import { LoadingScreen } from './components/LoadingScreen';
 import { MEMBERS_DATA, APP_CONFIG } from './constants';
 import { Volume2, VolumeX, ChevronDown } from 'lucide-react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [entered, setEntered] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [selectedMemberId, setSelectedMemberId] = useState<string | null>(null);
   const [isMusicPausedForModal, setIsMusicPausedForModal] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const sfxRef = useRef<HTMLAudioElement>(null);
@@ -31,6 +34,11 @@ export default function App() {
       audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
+  };
+
+  const handleMemberClick = (memberId: string, soundSrc?: string) => {
+    setSelectedMemberId(selectedMemberId === memberId ? null : memberId);
+    playInteractionSound(soundSrc);
   };
 
   const playInteractionSound = (customSound?: string) => {
@@ -56,6 +64,10 @@ export default function App() {
 
   return (
     <div className={`min-h-screen font-sans selection:bg-accent selection:text-white relative`}>
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen key="loading" onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
       {/* GLOBAL BACKGROUND IMAGE */}
       {APP_CONFIG.customBackgroundImg && (
         <div 
@@ -82,17 +94,6 @@ export default function App() {
           >
             <Navigation />
 
-            {/* AUDIO CONTROL (Floating) */}
-            <div className="fixed bottom-8 right-8 z-[60]">
-              <button 
-                onClick={toggleMute}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-white border-white/10 hover:border-accent hover:shadow-[0_0_15px_rgba(255,0,0,0.3)] transition-all"
-              >
-                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} className={entered && !isMusicPausedForModal ? "animate-accent" : ""} />}
-              </button>
-            </div>
-
-            {/* HERO / HOF SECTION */}
       <section id="hof" className="relative min-h-screen flex items-center justify-center pt-32 pb-40 overflow-hidden bg-transparent">
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-transparent to-transparent opacity-60 pointer-events-none" />
@@ -112,6 +113,7 @@ export default function App() {
                   member={member} 
                   onClick={() => playInteractionSound(member.soundSrc)}
                   className="h-full" 
+                  isNameVisible={true}
                 />
               </motion.div>
             ))}
@@ -177,7 +179,8 @@ export default function App() {
               <MemberCard 
                 key={member.id} 
                 member={member} 
-                onClick={() => playInteractionSound(member.soundSrc)}
+                onClick={() => handleMemberClick(member.id, member.soundSrc)}
+                isNameVisible={selectedMemberId === member.id}
               />
             ))}
           </div>
@@ -194,7 +197,7 @@ export default function App() {
             className="space-y-8"
           >
             <p className="text-2xl sm:text-4xl text-white font-medium leading-tight tracking-tight">
-              GANJA is more than just a community; it's a digital frontier. Born from the intersection of gaming culture and high-fidelity design, we've created a sanctuary for those who refuse the ordinary.
+              GANJA.ORG is more than just a community; it's a digital frontier. Born from the intersection of gaming culture and high-fidelity design, we've created a sanctuary for those who refuse the ordinary.
             </p>
           </motion.div>
         </div>
@@ -207,7 +210,8 @@ export default function App() {
           <a href="#" className="hover:text-accent transition-colors">X / TWITTER</a>
           <a href="#" className="hover:text-accent transition-colors">OPENSEA</a>
         </div>
-        <div>© 2026 GANJA COLLECTIVE // ALL RIGHTS RESERVED</div>
+        <div className="mb-2">© 2026 GANJA.ORG COLLECTIVE // ALL RIGHTS RESERVED</div>
+        <div className="opacity-20 text-[8px] tracking-[1em] mt-4">SkyeLuvsU</div>
       </footer>
 
       {/* HIDDEN AUDIO ELEMENT */}

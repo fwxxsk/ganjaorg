@@ -65,18 +65,19 @@ export default function App() {
       )}
       
       {/* BLUE & PINK VIBE OVERLAY*/}
-    
+    {/* BLUE & PINK VIBE OVERLAY */}
+<div className="fixed inset-0 z-[-1] pointer-events-none bg-gradient-to-br from-accent/5 via-pink/5 to-accent/10 mix-blend-multiply" />
       
       <AnimatePresence mode="wait" initial={false}>
-        {!entered ? (
-          <SplashScreen key="splash" onEnter={handleEnter} />
-        ) : (
-           // <motion.div 
-            key="main-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
+  {!entered ? (
+    <SplashScreen key="splash" onEnter={handleEnter} />
+  ) : (
+    <motion.div
+      key="main-content"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
             <Navigation />
 
             {/* AUDIO CONTROL (Floating) */}
